@@ -34,11 +34,19 @@ const RegisterForm = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof registerSchema>) => {
-    await register(values);
-    toast({
-      description: "You have successfully registered. Please login.",
-    });
-    router.push("/auth/login");
+    try {
+      await register(values);
+      toast({
+        description: "You have successfully registered. Please login.",
+      });
+      router.push("/auth/login");
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Registration Failed!",
+        description: "Please try again.",
+      });
+    }
   };
   return (
     <Form {...form}>

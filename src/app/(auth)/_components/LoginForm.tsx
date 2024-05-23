@@ -33,11 +33,19 @@ const LoginForm = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof loginSchema>) => {
-    await login(values);
-    toast({
-      description: "You have successfully logged in.",
-    });
-    router.push("/");
+    try {
+      await login(values);
+      toast({
+        description: "You have successfully logged in.",
+      });
+      router.push("/");
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Login Failed!",
+        description: "Invalid email or password.",
+      });
+    }
   };
   return (
     <Form {...form}>
