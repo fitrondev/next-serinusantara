@@ -44,14 +44,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     }),
   ],
   pages: {
-    signIn: "/login",
-  },
-  callbacks: {
-    async redirect({ url, baseUrl }) {
-      // Allows relative callback URLs
-      if (url.startsWith("/auth")) return `${baseUrl}${url}`;
-      return baseUrl;
-    },
+    signIn: "/auth/login",
   },
   session: {
     strategy: "jwt",
