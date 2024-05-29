@@ -46,3 +46,28 @@ model Account {
 
   @@id([provider, providerAccountId])
 }
+
+model Movie {
+  id         String       @id @default(cuid())
+  img        String
+  title      String
+  age        Int
+  duration   Float
+  overview   String
+  release    Int
+  source     String
+  category   String
+  youtube    String
+  wathcLists WatchLists[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model WatchLists {
+  id     String @id @default(cuid())
+  userId String
+
+  movieId String?
+  movie   Movie?  @relation(fields: [movieId], references: [id])
+}
