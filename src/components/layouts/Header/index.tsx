@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FiSearch } from "react-icons/fi";
 import { MdNotificationsNone } from "react-icons/md";
-import { SignOut } from "@/components/SignOut";
 import MobileMenu from "./MobileMenu";
 import DropdownProfile from "./DropdownProfile";
 
@@ -13,7 +12,7 @@ const Header = async () => {
   const session = await auth();
 
   return (
-    <header>
+    <header className="w-full fixed top-0 z-50">
       <div className="container h-16 flex items-center justify-between">
         <MobileMenu session={session} />
 
@@ -26,8 +25,8 @@ const Header = async () => {
           {session ? (
             <div className="flex gap-5">
               <div className="inline-flex items-center gap-5">
-                <FiSearch className="size-5" />
-                <MdNotificationsNone className="size-6" />
+                <FiSearch className="size-5 text-background" />
+                <MdNotificationsNone className="size-6 text-background" />
               </div>
               <DropdownProfile session={session} />
             </div>
