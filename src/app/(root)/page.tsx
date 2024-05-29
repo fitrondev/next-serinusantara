@@ -1,11 +1,11 @@
 import Header from "@/components/layouts/Header";
-import { SignOut } from "@/components/SignOut";
+import Hero from "@/components/layouts/Hero";
 
 const Home = () => {
   return (
     <>
       <Header />
-      <SignOut />
+      <Hero />
     </>
   );
 };
