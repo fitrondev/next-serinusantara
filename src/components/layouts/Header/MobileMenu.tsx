@@ -8,7 +8,7 @@ const MobileMenu = ({ session }: { session: Session | null }) => {
   return (
     <Sheet>
       <SheetTrigger className="lg:hidden inline-flex items-center gap-2">
-        <RiMenu2Fill className="size-6 select-none" />
+        <RiMenu2Fill className="size-6 select-none text-background" />
         <Logo />
       </SheetTrigger>
       <SheetContent side={"left"}>

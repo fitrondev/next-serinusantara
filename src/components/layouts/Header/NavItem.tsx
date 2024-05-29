@@ -36,7 +36,7 @@ const NavItem = () => {
           key={index}
           href={item.href}
           className={cn(
-            "hover:text-primary transition duration-300 ease-in-out",
+            "lg:text-background hover:text-primary transition duration-300 ease-in-out",
             pathname === item.href && "font-semibold"
           )}>
           {item.label}
