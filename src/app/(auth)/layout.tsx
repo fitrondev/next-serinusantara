@@ -1,7 +1,14 @@
+import { auth } from "@/auth";
 import Logo from "@/components/Logo";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 
-const AuthLayout = ({ children }: { children: React.ReactNode }) => {
+const AuthLayout = async ({ children }: { children: React.ReactNode }) => {
+  const session = await auth();
+
+  if (session) {
+    return redirect("/");
+  }
   return (
     <div className="relative w-screen h-screen flex items-center justify-center text-white">
       <Image
